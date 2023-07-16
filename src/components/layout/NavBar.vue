@@ -1,9 +1,11 @@
 <template>
   <nav class="navbar is-success" role="navigation" aria-label="main navigation">
-    <div class="container is-max-desktop">
-      <div class="navbar-brand is-size-4 is-family-monospace">
-        <div class=""></div>
-        Noteify
+    <div class="container is-max-desktop px-2">
+      <div class="navbar-brand">
+        <div class="navbar-logo is-size-4 is-family-monospace mt-2 ml-3">
+          Noteify
+        </div>
+
         <a
           @click.prevent="showMobileNav = !showMobileNav"
           role="button"
@@ -54,6 +56,9 @@ const showMobileNav = ref(false);
     position: absolute;
     left: 0;
     width: 100%;
+  }
+  .navbar-brand {
+    margin-left: -12px;
   }
 }
 </style>
