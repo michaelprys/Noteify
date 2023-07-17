@@ -28,7 +28,10 @@
           <RouterLink to="/" class="navbar-item" active-class="is-active">
             Notes
           </RouterLink>
-          <RouterLink to="/stats" class="navbar-item" active-class="is-active">
+          <RouterLink
+            :to="'stats'"
+            class="navbar-item"
+            active-class="is-active">
             Stats
           </RouterLink>
         </div>
@@ -38,15 +41,10 @@
 </template>
 
 <script setup>
-/*
-imports
-*/
+// imports
 import { ref } from "vue";
 
-/*
-mobile nav
-*/
-
+// mobile nav
 const showMobileNav = ref(false);
 </script>
 
