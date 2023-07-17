@@ -3,32 +3,66 @@
     <div class="card has-background-success-dark p-4 mb-5">
       <div class="field">
         <div class="control">
-          <textarea class="textarea" placeholder="Add a new note" />
+          <textarea
+            class="textarea"
+            v-model="newNote"
+            placeholder="Add a new note"
+            ref="newNoteRef" />
         </div>
       </div>
-
       <div class="field is-grouped is-grouped-right">
         <div class="control">
-          <button class="button is-link has-background-success">
+          <button
+            :disabled="!newNote"
+            @click="addNote"
+            class="button is-link has-background-success">
             Add New Note
           </button>
         </div>
       </div>
     </div>
-
-    <div class="card mb-4" v-for="i in 3">
-      <div class="card-content">
-        <div class="content">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum eum
-          praesentium soluta quo, ratione consequuntur cupiditate odit magnam
-          corporis, minus rerum corrupti nulla unde aliquam saepe quidem
-          voluptates natus quae!
-        </div>
-      </div>
-      <footer class="card-footer">
-        <a href="#" class="card-footer-item">Edit</a>
-        <a href="#" class="card-footer-item">Delete</a>
-      </footer>
-    </div>
+    <!--  Adding note component -->
+    <Note v-for="note in notes" :key="note.id" :note="note" />
   </div>
 </template>
+
+<script setup>
+/**
+ * imports
+ */
+
+import { ref } from "vue";
+import Note from "@/components/Notes/Note.vue";
+
+/**
+ * notes
+ */
+
+const newNote = ref("");
+const newNoteRef = ref();
+
+const notes = ref([
+  {
+    id: "id1",
+    content: " Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+  },
+  {
+    id: "id2",
+    content: "This is a shorter note!",
+  },
+]);
+
+const addNote = () => {
+  let currentDate = new Date().getTime(),
+    id = currentDate.toString();
+
+  let note = {
+    id,
+    content: newNote.value,
+  };
+
+  notes.value.unshift(note);
+  newNote.value = "";
+  newNoteRef.value.focus();
+};
+</script>

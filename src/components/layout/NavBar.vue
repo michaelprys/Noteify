@@ -61,4 +61,8 @@ const showMobileNav = ref(false);
     margin-left: -12px;
   }
 }
+
+.navbar-logo {
+  cursor: pointer;
+}
 </style>
