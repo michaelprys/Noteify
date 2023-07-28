@@ -10,7 +10,12 @@
     </div>
     <footer class="card-footer">
       <a href="#" class="card-footer-item">Edit</a>
-      <a href="#" class="card-footer-item">Delete</a>
+      <a
+        href="#"
+        @click.prevent="storeNotes.deleteNote(note.id)"
+        class="card-footer-item"
+        >Delete</a
+      >
     </footer>
   </div>
 </template>
@@ -18,6 +23,7 @@
 <script setup>
 // imports
 import { computed } from "vue";
+import { useStoreNotes } from "@/stores/storeNotes.js";
 
 // props
 const props = defineProps({
@@ -26,6 +32,10 @@ const props = defineProps({
     required: true,
   },
 });
+
+// store
+
+const storeNotes = useStoreNotes();
 
 // character length
 const characterLength = computed(() => {
