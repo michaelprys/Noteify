@@ -4,7 +4,7 @@
       <div class="content">
         {{ note.content }}
         <div class="has-text-right has-text-grey-light mt-2">
-          <small>{{ characterLength }} {{ description }} </small>
+          <small>{{ characterLength }} </small>
         </div>
       </div>
     </div>
