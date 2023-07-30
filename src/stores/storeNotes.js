@@ -32,4 +32,9 @@ export const useStoreNotes = defineStore("storeNotes", {
       });
     },
   },
+  getters: {
+    getNoteContent: (state) => {
+      return state.notes[0].content;
+    },
+  },
 });
