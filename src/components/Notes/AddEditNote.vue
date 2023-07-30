@@ -3,10 +3,11 @@
     <div class="field">
       <div class="control">
         <textarea
-          :modelValue="modelValue"
+          :value="modelValue"
           @input="$emit('update:modelValue', $event.target.value)"
           class="textarea"
-          placeholder="Add a new note" />
+          placeholder="Add a new note"
+          ref="textareaRef" />
       </div>
     </div>
     <div class="field is-grouped is-grouped-right">
@@ -18,6 +19,21 @@
 </template>
 
 <script setup>
+// imports
+import { ref } from "vue";
+
+// props & emits
 const props = defineProps(["modelValue"]);
 const emit = defineEmits(["update:modelValue"]);
+
+// focus textarea
+const textareaRef = ref(null);
+
+const focusTextarea = () => {
+  textareaRef.value.focus();
+};
+
+defineExpose({
+  focusTextarea,
+});
 </script>
