@@ -1,6 +1,7 @@
 <script setup>
 //imports
 import { useStoreNotes } from "@/stores/storeNotes";
+import { vAutofocus } from "@/directives/vAutofocus";
 
 // store
 const storeNotes = useStoreNotes();
@@ -26,5 +27,10 @@ const storeNotes = useStoreNotes();
         </tr>
       </tbody>
     </table>
+    <input
+      class="input"
+      type="text"
+      placeholder="Do you love Noteify?"
+      v-autofocus />
   </div>
 </template>

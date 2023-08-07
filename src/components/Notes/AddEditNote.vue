@@ -8,7 +8,8 @@
           @input="$emit('update:modelValue', $event.target.value)"
           class="textarea"
           :placeholder="placeholder"
-          ref="textareaRef" />
+          ref="textareaRef"
+          v-autofocus />
       </div>
     </div>
     <div class="field is-grouped is-grouped-right">
@@ -22,6 +23,7 @@
 <script setup>
 // imports
 import { ref } from "vue";
+import { vAutofocus } from "@/directives/vAutofocus";
 
 // props & emits
 const props = defineProps({
