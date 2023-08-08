@@ -43,5 +43,5 @@ const statsInputCharacters = ref("");
 
 // watch number of characters
 
-useWatchCharacters(statsInputCharacters);
+useWatchCharacters(statsInputCharacters, 50);
 </script>
